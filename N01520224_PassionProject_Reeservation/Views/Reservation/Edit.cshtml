@@ -1,0 +1,60 @@
+﻿@model N01520224_PassionProject_Reeservation.Models.ViewModels.UpdateReservation
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Reservation Details</h2>
+<form action="/Reservation/Update/@Model.SelectedReservation.ReservationId" method="POST">
+    <div style="display:none;">
+        @* Pass through the animal ID *@
+        <input type="text" name="ReservationId" value="@Model.SelectedReservation.ReservationId" />
+        <input type="text" name="ReservationNumber" value="@Model.SelectedReservation.ReservationNumber"/>
+
+    </div>
+    <div>
+        <h2>@Model.SelectedReservation.ReservationNumber</h2>
+        <label>Guest Name </label>
+        <select name="GuestId">
+            @foreach (var guest in Model.Guests)
+            {
+                string selected = "";
+                if (guest.GuestId == Model.SelectedReservation.GuestId)
+                {
+                    selected = "selected";
+                }
+                <option value="@guest.GuestId" @selected>@guest.FirstName @guest.LastName</option>
+            }
+        </select>
+    </div>
+
+    <div>
+        <label>Room Number </label>
+        <select name="UnitId">
+            @foreach (var unit in Model.Units)
+            {
+                string selected = "";
+                if (unit.UnitId == Model.SelectedReservation.UnitId)
+                {
+                    selected = "selected";
+                }
+                <option value="@unit.UnitId" @selected>@unit.UnitNumber</option>
+            }
+        </select>
+    </div>
+
+    <div>
+        <label>Status </label>
+        <select name="ReservationStatus">
+            <option value="Reserved">Reserved</option>
+            <option value="CheckedIn">Checked In</option>
+            <option value="InHouse">In House</option>
+            <option value="CheckedOut">Checked Out</option>
+            <option value="Canceled">Canceled</option>
+        </select>
+    </div>
+    
+    <div>
+        <input type="submit" value="Update Reservation" />
+    </div>
+</form>
+

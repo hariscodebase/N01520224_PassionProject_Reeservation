@@ -1,0 +1,44 @@
+﻿@model N01520224_PassionProject_Reeservation.Models.ViewModels.DetailsNewReservation
+@{
+    ViewBag.Title = "New";
+}
+
+<h2>Create Reservation</h2>
+<form action="/Reservation/Create" method="POST">
+
+    <div>
+        <label>Guest Name </label>
+        <select name="GuestId">
+            @foreach (var guest in Model.Guests)
+            {
+                <option value="@guest.GuestId">@guest.FirstName @guest.LastName</option>
+            }
+        </select>
+    </div>
+
+    <div>
+        <label>Room Number </label>
+        <select name="UnitId">
+            @foreach (var unit in Model.Units)
+            {
+                <option value="@unit.UnitId">@unit.UnitNumber</option>
+            }
+        </select>
+    </div>
+
+    <div>
+        <label>Status </label>
+        <select name="ReservationStatus">
+            <option value="Reserved">Reserved</option>
+            <option value="CheckedIn">Checked In</option>
+            <option value="InHouse">In House</option>
+            <option value="CheckedOut">Checked Out</option>
+            <option value="Canceled">Canceled</option>
+        </select>
+    </div>
+
+    <div>
+        <input type="submit" value="Submit" />
+    </div>
+</form>
+

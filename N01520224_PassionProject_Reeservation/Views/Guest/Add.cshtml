@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "Add";
+}
+
+<h2>Add Guest</h2>
+
+<form action="/Guest/Create" method="POST">
+    <div>
+        <label>First Name:</label> <input type="text" name="FirstName" />
+    </div>
+    <div>
+        <label>Last Name:</label> <input type="text" name="LastName" />
+    </div>
+    <div>
+        <label>Phone Number: </label> <input type="number" name="PhoneNumber" />
+    </div>
+    <div>
+        <input type="submit" value="Create Guest" />
+
+    </div>
+</form>
+

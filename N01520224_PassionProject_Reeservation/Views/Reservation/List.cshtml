@@ -1,0 +1,17 @@
+﻿@model IEnumerable<N01520224_PassionProject_Reeservation.Models.ReservationDto>
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>Reservation Home Page</h2>
+<div>
+    <a href="/Guest/Add">Add Guest</a>
+</div>
+<div>
+    <a href="/Reservation/New">New Reservation</a>
+</div>
+
+@foreach(var reservation in Model)
+{ 
+   <li><a href="/Reservation/Edit/@reservation.ReservationId">@reservation.ReservationNumber</a></li>  
+}
