@@ -33,19 +33,18 @@ namespace N01520224_PassionProject_Reeservation.Controllers
             return View(reservations);
         }
 
-        // GET: Animal/Edit/5
+        // GET: reservation/Edit/5
         public ActionResult Edit(int id)
         {
             UpdateReservation ViewModel = new UpdateReservation();
 
-            //the existing animal information
+            //the existing reservation information
             string url = "ReservationData/FindReservation/" + id;
             HttpResponseMessage response = client.GetAsync(url).Result;
             ReservationDto SelectedReservation = response.Content.ReadAsAsync<ReservationDto>().Result;
             ViewModel.SelectedReservation = SelectedReservation;
 
-            // all species to choose from when updating this animal
-            //the existing animal information
+            //the existing reservation information
             string guestUrl = "GuestData/ListGuests";
             response = client.GetAsync(guestUrl).Result;
             IEnumerable<Guest> guests = response.Content.ReadAsAsync<IEnumerable<Guest>>().Result;
@@ -59,7 +58,7 @@ namespace N01520224_PassionProject_Reeservation.Controllers
             return View(ViewModel);
         }
 
-        // POST: Animal/Update/5
+        // POST: reservation/Update/5
         [HttpPost]
         public ActionResult Update(int id, Reservation reservation)
         {
@@ -101,10 +100,10 @@ namespace N01520224_PassionProject_Reeservation.Controllers
         [HttpPost]
         public ActionResult Create(Reservation reservation)
         {
-            Debug.WriteLine("the json payload is :");
-            //Debug.WriteLine(animal.AnimalName);
-            //objective: add a new animal into our system using the API
-            //curl -H "Content-Type:application/json" -d @animal.json https://localhost:44324/api/animaldata/addanimal 
+            //Debug.WriteLine("the json payload is :");
+            //Debug.WriteLine(reservation.reservationName);
+            //objective: add a new reservation into our system using the API
+            //curl -H "Content-Type:application/json" -d @reservation.json api/reservationdata/addreservation 
             string url = "reservationdata/addreservation";
 
 

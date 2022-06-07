@@ -25,7 +25,7 @@ namespace N01520224_PassionProject_Reeservation.Controllers
             return Ok(Guests);
         }
 
-        // POST: api/GuestData
+        // POST: api/GuestData/AddGuest
         [ResponseType(typeof(Guest))]
         [HttpPost]
         public IHttpActionResult AddGuest(Guest guest)

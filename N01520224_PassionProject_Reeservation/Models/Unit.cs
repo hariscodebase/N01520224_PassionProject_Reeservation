@@ -8,6 +8,8 @@ namespace N01520224_PassionProject_Reeservation.Models
 {
     public class Unit
     {
+        // unit details
+
         [Key]
         public int UnitId { get; set; }
         public int UnitNumber { get; set; }

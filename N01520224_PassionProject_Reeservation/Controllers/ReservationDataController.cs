@@ -59,7 +59,8 @@ namespace N01520224_PassionProject_Reeservation.Controllers
             return Ok(reservationDto);
         }
 
-        
+        // GET: api/ReservationData/FindReservation/5
+
         [ResponseType(typeof(ReservationDto))]
         [HttpGet]
         public IHttpActionResult FindReservation(int id)
@@ -82,6 +83,9 @@ namespace N01520224_PassionProject_Reeservation.Controllers
 
             return Ok(reservationDto);
         }
+
+
+        // GET: api/ReservationData/UpdateReservation/5
 
         [ResponseType(typeof(void))]
         [HttpPost]
@@ -118,7 +122,7 @@ namespace N01520224_PassionProject_Reeservation.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/ReservationData
+        // POST: api/ReservationData/AddReservation
         [ResponseType(typeof(Reservation))]
         [HttpPost]
         public IHttpActionResult AddReservation(Reservation reservation)

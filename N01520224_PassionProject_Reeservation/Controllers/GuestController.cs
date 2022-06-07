@@ -55,8 +55,8 @@ namespace N01520224_PassionProject_Reeservation.Controllers
         public ActionResult Create(Guest guest)
         {
 
-            //objective: add a new animal into our system using the API
-            //curl -H "Content-Type:application/json" -d @animal.json https://localhost:44324/api/animaldata/addanimal 
+            //objective: add a new reservation into our system using the API
+            //curl -H "Content-Type:application/json" -d @reservation.json https://localhost:44324/api/reservationdata/addreservation 
             string url = "guestdata/addguest";
 
 

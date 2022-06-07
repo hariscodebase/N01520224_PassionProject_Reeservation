@@ -9,6 +9,8 @@ namespace N01520224_PassionProject_Reeservation.Models
 {
     public class Reservation
     {
+        //reservation details
+
         [Key]
         public int ReservationId { get; set; }
         public string ReservationNumber { get; set; }
