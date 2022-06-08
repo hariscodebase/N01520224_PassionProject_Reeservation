@@ -17,7 +17,16 @@ namespace N01520224_PassionProject_Reeservation.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: api/ReservationData/ListReservations
+        /// <summary>
+        /// Returns all reservations in the system.
+        /// </summary>
+        /// <returns>
+        /// HEADER: 200 (OK)
+        /// CONTENT: all reservations in the database, including their associated species.
+        /// </returns>
+        /// <example>
+        /// GET: api/ReservationData/ListReservations
+        /// </example>
         [HttpGet]
         [ResponseType(typeof(ReservationDto))]
         public IHttpActionResult ListReservations()
@@ -59,8 +68,20 @@ namespace N01520224_PassionProject_Reeservation.Controllers
             return Ok(reservationDto);
         }
 
-        // GET: api/ReservationData/FindReservation/5
-
+        /// <summary>
+        /// Returns all reservations in the system.
+        /// </summary>
+        /// <returns>
+        /// HEADER: 200 (OK)
+        /// CONTENT: An reservation in the system matching up to the reservation ID primary key
+        /// or
+        /// HEADER: 404 (NOT FOUND)
+        /// </returns>
+        /// <param name="id">The primary key of the reservation</param>
+        /// <example>
+        /// GET: api/ReservationData/FindReservation/5
+        /// </example>
+        
         [ResponseType(typeof(ReservationDto))]
         [HttpGet]
         public IHttpActionResult FindReservation(int id)
@@ -85,8 +106,23 @@ namespace N01520224_PassionProject_Reeservation.Controllers
         }
 
 
-        // GET: api/ReservationData/UpdateReservation/5
 
+        /// <summary>
+        /// Updates a particular reservation in the system with POST Data input
+        /// </summary>
+        /// <param name="id">Represents the reservation ID primary key</param>
+        /// <param name="reservation">JSON FORM DATA of an reservation</param>
+        /// <returns>
+        /// HEADER: 204 (Success, No Content Response)
+        /// or
+        /// HEADER: 400 (Bad Request)
+        /// or
+        /// HEADER: 404 (Not Found)
+        /// </returns>
+        /// <example>
+        /// POST: api/ReservationData/UpdateReservation/5
+        /// FORM DATA: reservation JSON Object
+        /// </example>
         [ResponseType(typeof(void))]
         [HttpPost]
         public IHttpActionResult UpdateReservation(int id, Reservation reservation)
@@ -122,7 +158,20 @@ namespace N01520224_PassionProject_Reeservation.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/ReservationData/AddReservation
+        /// <summary>
+        /// Adds an reservation to the system
+        /// </summary>
+        /// <param name="reservation">JSON FORM DATA of an reservation</param>
+        /// <returns>
+        /// HEADER: 201 (Created)
+        /// CONTENT: reservation ID, reservation Data
+        /// or
+        /// HEADER: 400 (Bad Request)
+        /// </returns>
+        /// <example>
+        /// POST: api/ReservationData/AddReservation
+        /// FORM DATA: reservation JSON Object
+        /// </example>
         [ResponseType(typeof(Reservation))]
         [HttpPost]
         public IHttpActionResult AddReservation(Reservation reservation)

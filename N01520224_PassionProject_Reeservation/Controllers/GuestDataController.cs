@@ -16,7 +16,16 @@ namespace N01520224_PassionProject_Reeservation.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: api/ReservationData/ListGuests
+        /// <summary>
+        /// Returns all guests in the system.
+        /// </summary>
+        /// <returns>
+        /// HEADER: 200 (OK)
+        /// CONTENT: all guests with their details in the database.
+        /// </returns>
+        /// <example>
+        /// GET: api/guestData/ListGuests
+        /// </example>
         [HttpGet]
         [ResponseType(typeof(Guest))]
         public IHttpActionResult ListGuests()
@@ -25,7 +34,16 @@ namespace N01520224_PassionProject_Reeservation.Controllers
             return Ok(Guests);
         }
 
-        // POST: api/GuestData/AddGuest
+        /// <summary>
+        /// Adds a new guest in the system.
+        /// </summary>
+        /// <returns>
+        /// HEADER: 200 (OK)
+        /// CONTENT: all guests with their details in the database.
+        /// </returns>
+        /// <example>
+        /// POST: api/GuestData/AddGuest
+        /// </example>
         [ResponseType(typeof(Guest))]
         [HttpPost]
         public IHttpActionResult AddGuest(Guest guest)
