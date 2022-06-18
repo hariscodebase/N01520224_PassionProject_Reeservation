@@ -68,6 +68,46 @@ namespace N01520224_PassionProject_Reeservation.Controllers
             return Ok(reservationDto);
         }
 
+        // GET: api/ReservationData/ListReservationByGuestId/2
+        [ResponseType(typeof(Reservation))]
+        [HttpGet]
+        public IHttpActionResult ListReservationByGuestId(int id)
+        {
+            List<Reservation> Reservations = db.Reservations.Where(r => r.GuestId == id).ToList();
+            List<ReservationDto> ReservationDtos = new List<ReservationDto>();
+
+            Reservations.ForEach(res => ReservationDtos.Add(new ReservationDto()
+            {
+                ReservationId = res.ReservationId,
+                ReservationNumber = res.ReservationNumber,
+                ReservationStatus = res.ReservationStatus,
+                GuestName = res.Guest.FirstName + " " + res.Guest.LastName,
+                UnitNumber = res.Unit.UnitNumber
+            }));
+
+            return Ok(ReservationDtos);
+        }
+
+        // GET: api/ReservationData/ListReservationByUnitId/2
+        [ResponseType(typeof(Reservation))]
+        [HttpGet]
+        public IHttpActionResult ListReservationByUnitId(int id)
+        {
+            List<Reservation> Reservations = db.Reservations.Where(r => r.UnitId == id).ToList();
+            List<ReservationDto> ReservationDtos = new List<ReservationDto>();
+
+            Reservations.ForEach(res => ReservationDtos.Add(new ReservationDto()
+            {
+                ReservationId = res.ReservationId,
+                ReservationNumber = res.ReservationNumber,
+                ReservationStatus = res.ReservationStatus,
+                GuestName = res.Guest.FirstName + " " + res.Guest.LastName,
+                UnitNumber = res.Unit.UnitNumber
+            }));
+
+            return Ok(ReservationDtos);
+        }
+
         /// <summary>
         /// Returns all reservations in the system.
         /// </summary>
@@ -81,7 +121,7 @@ namespace N01520224_PassionProject_Reeservation.Controllers
         /// <example>
         /// GET: api/ReservationData/FindReservation/5
         /// </example>
-        
+
         [ResponseType(typeof(ReservationDto))]
         [HttpGet]
         public IHttpActionResult FindReservation(int id)

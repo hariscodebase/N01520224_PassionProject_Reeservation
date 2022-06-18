@@ -1,0 +1,13 @@
+﻿body {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+form > div {
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+form * {
+    list-style-type: none;
+    text-decoration: none;
+}
