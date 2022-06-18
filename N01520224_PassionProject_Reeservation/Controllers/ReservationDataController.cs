@@ -81,7 +81,9 @@ namespace N01520224_PassionProject_Reeservation.Controllers
                 ReservationId = res.ReservationId,
                 ReservationNumber = res.ReservationNumber,
                 ReservationStatus = res.ReservationStatus,
+                GuestId = res.GuestId,
                 GuestName = res.Guest.FirstName + " " + res.Guest.LastName,
+                UnitId = res.UnitId,
                 UnitNumber = res.Unit.UnitNumber
             }));
 
@@ -101,7 +103,9 @@ namespace N01520224_PassionProject_Reeservation.Controllers
                 ReservationId = res.ReservationId,
                 ReservationNumber = res.ReservationNumber,
                 ReservationStatus = res.ReservationStatus,
+                GuestId = res.GuestId,
                 GuestName = res.Guest.FirstName + " " + res.Guest.LastName,
+                UnitId = res.UnitId,
                 UnitNumber = res.Unit.UnitNumber
             }));
 
